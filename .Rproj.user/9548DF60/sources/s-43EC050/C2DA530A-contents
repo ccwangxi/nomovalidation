@@ -1,0 +1,60 @@
+# Hello, world!
+#
+# This is an example function named 'hello'
+# which prints 'Hello, world!'.
+#
+# You can learn more about package authoring with RStudio at:
+#
+#   http://r-pkgs.had.co.nz/
+#
+# Some useful keyboard shortcuts for package authoring:
+#
+#   Build and Reload Package:  'Ctrl + Shift + B'
+#   Check Package:             'Ctrl + Shift + E'
+#   Test Package:              'Ctrl + Shift + T'
+
+hello <- function() {
+  print("Hello, world!")
+}
+
+
+ n <- 500
+ set.seed(2019)
+var1 <- 30 + 5*rnorm(n)
+ var2 <- factor(sample(c("White","Black"),n,rep=T,prob=c(.3,.7)))
+ hazard <- .1*exp(.2*(var1-30)+.5*(var2=="Black"))
+
+time_to_event <- -log(runif(n))/hazard
+ cens <- 15*runif(n)
+censor <- ifelse(time_to_event <= cens,1,0)
+All <- data.frame(time_to_event = time_to_event,censor=censor, var1 = var1, var2= var2)
+TR <- All[1:300,]
+TE <- All[301:500,]
+get.external.valid(TR,TE,Surv.rsp=Surv(TR$time_to_event, TR$censor),Surv.rsp.new=Surv(TE$time_to_event, TE$censor),
+                    times=20,formula=Surv(time_to_event,censor) ~ var1 + var2)
+ get.external.valid(TR,TE,Surv.rsp=Surv(TR$time_to_event, TR$censor),Surv.rsp.new=Surv(TE$time_to_event, TE$censor),
+                   times=seq(1,max(TE$time_to_event),1) ,formula=Surv(time_to_event,censor) ~ var1 + var2)
+ get.internal.valid(formula = Surv(time_to_event,censor) ~ var1 + var2,TR,B.num=2)
+
+ 
+ 
+ Package: nomovalidation
+ Type: Package
+ Title: Calibration and Validation of Cox PH model for nomogram
+ Version: 0.1.0
+ Author: Xi "Ada" Wang" <xzw149@psu.edu>
+ Maintainer: Xi "Ada" Wang <xzw149@psu.edu>
+ Description: This package provide unctions for internal calibration, internal validation and external validation of a Cox PH model.
+ A cox PH model need to be developed using training dataset before using this package. 
+ Harrell's C-index can be calculated for internal validation in training dataset. Performing the Cox PH model using testing dataset, Uno's C-index can be calculated for external validation.
+ Depends:
+ R (>= 3.5.1),
+ rms (>= 5.1-4),
+ survAUC (>= 1.0-5)
+ Imports:
+ rms,
+ survAUC
+ License: What license is it under?
+ Encoding: UTF-8
+ LazyData: true
+ RoxygenNote: 7.0.2 

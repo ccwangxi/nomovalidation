@@ -1,0 +1,19 @@
+Package: nomovalidation
+Type: Package
+Title: Calibration and Validation of Cox PH model for nomogram
+Version: 0.1.0
+Author: Xi "Ada" Wang" <xzw149@psu.edu>
+Maintainer: Xi "Ada" Wang <xzw149@psu.edu>
+Description: This package provide unctions for internal calibration, internal validation and external validation of a Cox PH model.
+    A cox PH model need to be developed using training dataset before using this package. 
+    Harrell's C-index can be calculated for internal validation in training dataset. Performing the Cox PH model using testing dataset, Uno's C-index can be calculated for external validation.
+Depends:
+   R (>= 3.6.0),
+   rms (>= 5.1-4),
+   survAUC (>= 1.0-5)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2
+Suggests: 
+    testthat
