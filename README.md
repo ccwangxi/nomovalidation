@@ -9,10 +9,10 @@ Before using this package, a Cox PH model need to be developed using the trainin
     get_internal_validation.R: Performing the Cox PH model using the testing dataset, Uno's C-index will be calculated for external validation.
 
 # Installation in R
-## 1. Install R packages rms and survAUC
-install.packages("rms")
-install.packages("survAUC")
-## 2. Install R package nomovalidation
-install.packages("devtools")
-library(devtools)
-install_github("ccwangxi/nomovalidation")
+### 1. Install R packages rms and survAUC
+    install.packages("rms")
+    install.packages("survAUC")
+### 2. Install R package nomovalidation
+    install.packages("devtools")
+    library(devtools)
+    install_github("ccwangxi/nomovalidation")
