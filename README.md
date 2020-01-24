@@ -6,9 +6,9 @@ Before using this package, a Cox PH model need to be developed using the trainin
     
    #### 1. get_internal_calibrarion.R: 
    To investigate the predictive performance of the Cox PH model at a specific value of time-to-event you are interested in, a calibration plot will be generated.
-   #### 2. get_external_validation.R: 
+   #### 2. get_internal_validation.R: 
    To assess the performance of the developed Cox PH model by bootstraping the training dataset, Harrell's C-index will be calculated for internal validation. 
-   #### 3. get_internal_validation.R: 
+   #### 3. get_external_validation.R: 
    To further assess the performance of the developed Cox PH model by applying it to an independent testing dataset, Uno's C-index will be calculated for external validation.
 
 # Installation in R
