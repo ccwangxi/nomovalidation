@@ -1,5 +1,5 @@
 # Introduction of nomovalidation
-nomovalidation is an R package for measure the prediction performance of a Cox PH model by internal calibration, internal validation, and external validation. This package was built on the R packages rms and survAUC. 
+nomovalidation is an R package to measure the prediction performance of a Cox PH model by internal calibration, internal validation, and external validation. This package was built on the R packages rms and survAUC. 
 "nomo" in the package name comes from nomogram, which is a visualization of a Cox PH model. 
 Physicians and clinicians use nomogram to quickly judge the survival of a patient based on the covariables (age, race, etc).  
 Before using this package, a Cox PH model need to be developed using the training dataset. This package contains 3 R functions:
